@@ -1,17 +1,18 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name stockCatApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the stockCatApp
- */
 angular.module('stockCatApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, $location, WatchlistService) {
+    // Populate watchlists for dynamic nav links
+    $scope.watchlists = WatchlistService.query();
+
+    // Using the $location.path() function as a $watch expression
+    $scope.$watch(function () {
+      return $location.path();
+    }, function (path) {
+      if (_.contains(path, 'watchlist')) {
+        $scope.activeView = 'watchlist';
+      } else {
+        $scope.activeView = 'dashboard';
+      }
+    });
   });

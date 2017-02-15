@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name stockCatApp.controller:AboutCtrl
+ * @name stockCatApp.controller:DashboardCtrl
  * @description
- * # AboutCtrl
+ * # DashboardCtrl
  * Controller of the stockCatApp
  */
 angular.module('stockCatApp')
-  .controller('AboutCtrl', function ($scope) {
+  .controller('DashboardCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
